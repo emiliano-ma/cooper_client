@@ -1,8 +1,12 @@
 import React, { Component } from "react";
 import DisplayCooperResult from "./components/DisplayCooperResult";
+import DisplayPerformanceData from "./components/DisplayPerformanceData";
 import InputFields from "./components/InputFields";
 import LoginForm from "./components/LoginForm";
 import { authenticate } from './modules/auth';
+
+
+
 
 class App extends Component {
   state = {
@@ -36,6 +40,7 @@ class App extends Component {
   render() {
     const { renderLoginForm, authenticated, message } = this.state;
     let renderLogin;
+    let performanceDataIndex
     switch(true) {
       case renderLoginForm && !authenticated:
         renderLogin = <LoginForm submitFormHandler={this.onLogin} />;

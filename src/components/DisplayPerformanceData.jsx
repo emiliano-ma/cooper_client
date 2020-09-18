@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import { saveData } from "../modules/performanceData";
+import { getData } from "../modules/performanceData";
 
 class DisplayPerformanceData extends Component {
   state = {
@@ -44,4 +44,4 @@ class DisplayPerformanceData extends Component {
   }      
 }
 
-export default DisplayPerformanceData
+export default DisplayPerformanceData;
