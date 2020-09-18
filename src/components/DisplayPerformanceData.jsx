@@ -11,7 +11,7 @@ class DisplayPerformanceData extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.updateIndex != prevProps.updateIndex) {
+    if (this.props.updateIndex !== prevProps.updateIndex) {
       this.getPerformanceData()
     }
   }
@@ -26,7 +26,7 @@ class DisplayPerformanceData extends Component {
   render () {
     let dataIndex;
 
-    if (this.state.performanceData != null) {
+    if (this.state.performanceData !== null) {
       dataIndex = (
         <div>
           {this.state.performanceData.map(item => {

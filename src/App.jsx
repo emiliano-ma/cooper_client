@@ -80,6 +80,8 @@ class App extends Component {
           )
         }
         break;
+        default:
+          break;
     }
 
     return (
