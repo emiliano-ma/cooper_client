@@ -6,8 +6,6 @@ import LoginForm from "./components/LoginForm";
 import { authenticate } from './modules/auth';
 
 
-
-
 class App extends Component {
   state = {
     distance: "",
