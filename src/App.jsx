@@ -4,6 +4,7 @@ import DisplayPerformanceData from "./components/DisplayPerformanceData";
 import InputFields from "./components/InputFields";
 import LoginForm from "./components/LoginForm";
 import { authenticate } from './modules/auth';
+import { Message, Header, Container, Grid, Image, Segment, Button } from 'semantic-ui-react'
 
 
 class App extends Component {
@@ -46,19 +47,27 @@ class App extends Component {
       case !renderLoginForm && !authenticated:
         renderLogin = (
           <>
-            <button
+            <Button
               id="login"
               onClick={() => this.setState({ renderLoginForm: true })}
+              color="google plus"
             >
               Login
-            </button>
+            </Button>
             <p id="message">{message}</p>
           </>
         );
         break;
       case authenticated:
         renderLogin = (
-          <p id="message">Hi {JSON.parse(sessionStorage.getItem("credentials")).uid}</p>
+          <Message
+            id="message"
+            header='Hi'
+            positive={true}
+            floating={true}
+            content={JSON.parse(sessionStorage.getItem("credentials")).uid}
+          />
+          // <p id="message">Hi {JSON.parse(sessionStorage.getItem("credentials")).uid}</p>
         );
         
         
@@ -69,12 +78,12 @@ class App extends Component {
                 updateIndex={this.state.updateIndex}
                 indexUpdated={() => this.setState({ updateIndex: false })}
               />
-              <button onClick={() => this.setState({ renderIndex: false })}>Hide past entries</button>
+              <Button color="black" onClick={() => this.setState({ renderIndex: false })}>Hide past entries</Button>
             </>
           )
         } else {
           performanceDataIndex = (
-            <button id="show-index" onClick={() => this.setState({ renderIndex: true })}>Show past entries</button>
+            <Button color="black" id="show-index" onClick={() => this.setState({ renderIndex: true })}>Show past entries</Button>
           )
         }
         break;
@@ -84,17 +93,70 @@ class App extends Component {
 
     return (
       <>
-        <InputFields onChangeHandler={this.onChangeHandler} />
-        {renderLogin}
-        <DisplayCooperResult
-          distance={this.state.distance}
-          gender={this.state.gender}
-          age={this.state.age}
-          authenticated={this.state.authenticated}
-          entrySaved={this.state.entrySaved}
-          entryHandler={() => this.setState({ entrySaved: true, updateIndex: true })}
-        />
-        {performanceDataIndex}
+        <Container>
+          <Header id='main-header' className='centered' as='h2'>Cooper Test Tracker</Header>
+          <p className='centered'> 
+            Below there are some references by <a target='_blank' rel="noopener noreferrer" href="https://bijlmakers.com/cooper-test/">Bijlmakers</a>
+          </p>
+          <p className='centered'>
+            This Cooper Test table gives an indication of your physical fitness, which depends on your sex and age, and the distance covered in 12 minutes.
+          </p>
+        
+        
+          <Grid>
+            <Grid.Row>
+              <Grid.Column width={8}>
+                <Image src='https://i0.wp.com/bijlmakers.com/wp-content/uploads/2012/12/cooper-test-graph-males.gif?resize=478%2C337&ssl=1' />
+              </Grid.Column>
+              <Grid.Column width={8}>
+                <Image src='https://i1.wp.com/bijlmakers.com/wp-content/uploads/2012/12/cooper-test-graph-females.gif?resize=478%2C337&ssl=1' />
+              </Grid.Column>
+            </Grid.Row>
+            <br/>
+            <Grid.Row>
+              <Grid.Column >
+                <Header className="centered" as='h2'>Go ahead and calculate your result!</Header>
+              </Grid.Column>
+            </Grid.Row>
+          </Grid>
+        </Container>
+
+        <Container>
+          
+          <InputFields onChangeHandler={this.onChangeHandler} />
+          
+          <Grid>
+            <Grid.Row>
+              <Grid.Column width={8}>
+                <DisplayCooperResult
+                  distance={this.state.distance}
+                  gender={this.state.gender}
+                  age={this.state.age}
+                  authenticated={this.state.authenticated}
+                  entrySaved={this.state.entrySaved}
+                  entryHandler={() => this.setState({ entrySaved: true, updateIndex: true })}
+                />
+              </Grid.Column>
+              <Grid.Column width={8}>
+                <Segment>
+                  <h3>Login to save your entry and keep track of your progress</h3>
+                  <Message negative>
+                    <p>App under development, please use this credentials: </p>
+                    <p>user@mail.com -- Password: password</p>
+                  </Message>
+                  {renderLogin}
+                </Segment>
+              </Grid.Column>
+            </Grid.Row>
+          </Grid>
+          <Segment >
+            Past Entries - (Must be logged in)
+            <br/>
+            {performanceDataIndex}
+          </Segment>
+          <br/>
+          
+        </Container>
       </>
     );
   }

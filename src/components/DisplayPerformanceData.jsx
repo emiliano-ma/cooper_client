@@ -32,14 +32,20 @@ class DisplayPerformanceData extends Component {
     if (this.state.performanceData != null) {
       this.state.performanceData.forEach(entry => {
         distances.push(entry.data.distance)
-        labels.push(entry.data.distance)
+        labels.push(entry.data.message)
       })
     }
 
     const data = {
       datasets: [{
         data: distances,
-        label: 'Saved entries'
+        label: 'Saved entries',
+        backgroundColor: 'rgba(5,178,84,0.2)',
+        borderColor: 'rgba(5,178,84,1)',
+        borderWidth: 2,
+        pointBackgroundColor: 'rgba(5,178,84,0.5)',
+        pointBorderColor: 'rgba(5,178,84,0.9)',
+        pointBorderWidth: 5,
       }],
       labels: labels 
     }

@@ -11,7 +11,9 @@
     "react": "^16.13.1",
     "react-chartjs-2": "^2.10.0",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.3"
+    "react-scripts": "3.4.3",
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^1.2.1"
   },
   "scripts": {
     "start": "PORT=3001 react-scripts start",
@@ -42,7 +44,7 @@
     "react-test-renderer": "^16.13.1"
   },
   "main": "index.js",
-  "repository": "git@github.com:munemo/cooper_client.git",
-  "author": "munemo <john.chimbani@outlook.com>",
+  "repository": "https://github.com/emiliano-ma/cooper_client.git",
+  "author": "emiliano.mainero@gmail.com",
   "license": "MIT"
 }
