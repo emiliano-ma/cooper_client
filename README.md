@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/3956c5a8-8a06-464e-9bbd-854cb6c6470d/deploy-status)](https://app.netlify.com/sites/coopertest-tracker/deploys)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
