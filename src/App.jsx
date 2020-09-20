@@ -140,9 +140,9 @@ class App extends Component {
               <Grid.Column width={8}>
                 <Segment>
                   <h3>Login to save your entry and keep track of your progress</h3>
-                  <Message negative>
-                    <p>App under development, please use this credentials: </p>
-                    <p>user@mail.com -- Password: password</p>
+                  <Message positive>
+                    <p>Use this Credentials for testing purposes</p>
+                    <p>Email: user@mail.com -- Password: password</p>
                   </Message>
                   {renderLogin}
                 </Segment>
