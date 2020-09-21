@@ -7,8 +7,8 @@ const InputFields = ({ onChangeHandler }) => {
       <Form  >
         <Form.Group>
         <Form.Field label='Select gender' control='select' onChange={onChangeHandler} name="gender" id="gender">
-            <option value='male'>Male</option>
             <option value='female'>Female</option>
+            <option value='male'>Male</option>
         </Form.Field>
         </Form.Group>
         <Form.Group widths="equal">
